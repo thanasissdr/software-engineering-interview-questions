@@ -10,6 +10,7 @@ def get_sum_of_multiples(list_: List, *args):
 
 
 if __name__ == "__main__":
+    
     list_ = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     print(get_sum_of_multiples(list_, 3, 5))
     # 3 + 5 + 6 + 9 + 10 = 33

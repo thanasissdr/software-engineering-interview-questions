@@ -17,14 +17,15 @@ def get_books_users_dict(users_books_dict: Dict[str, List]) -> Dict[str, List]:
 
 
 if __name__ == "__main__":
+
     import pprint as pp
 
-    users_books_dict = {
+    USERS_BOOKS_DICT = {
         "Alice": ["book1", "book2", "book3"],
         "Bob": ["book3", "book4", "book2", "book5"],
         "Mary": ["book1", "book2", "book8"],
         "Joe": ["book8"],
     }
 
-    books_users_dict = get_books_users_dict(users_books_dict)
+    books_users_dict = get_books_users_dict(USERS_BOOKS_DICT)
     pp.pprint(books_users_dict)

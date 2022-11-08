@@ -9,4 +9,4 @@ def fibonacci(n: int):
 if __name__ == "__main__":
 
     for i in range(10):
-        print(f"{i+1}-th term of fibonacci: {fibonacci(i)}")
+        print(f"{i+1}-th term of the fibonacci sequence: {fibonacci(i)}")

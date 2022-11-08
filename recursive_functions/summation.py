@@ -17,5 +17,6 @@ def summation(list_: List) -> int | float:
 
 
 if __name__ == "__main__":
+    
     list_a = [10, 20, 30]
     print(summation(list_a))
