@@ -1,20 +1,33 @@
-from typing import List
+from typing import Dict, List
 
 from benchmark import timing
 
 
-def factorial(n: int) -> int:
+@timing
+def factorial_recursive_memoization(n: int, memo: Dict[int, int] = None) -> int:
+    """
+    Recursive implementation of factorial
+    with memoization
+    """
+    if memo is None:
+        memo = {}
+
     if n in [0, 1]:
         return 1
-    else:
-        return n * factorial(n - 1)
+
+    if n in memo:
+        return memo[n]
+
+    result = n * factorial_recursive_memoization(n - 1, memo)
+    memo[n] = result
+    return result
 
 
+@timing
 def factorial_cached(n: int) -> int:
     """
-    Theoretically this should be faster,
-    since it uses caching, rather than calculating
-    factorials from scratch.
+    Factorial implementation
+    with caching
     """
     i = 1
 
@@ -26,15 +39,26 @@ def factorial_cached(n: int) -> int:
         cached[i] = cached[i - 1] * i
         i += 1
 
-    return cached[n - 1] * n
+    return cached[n]
 
 
 @timing
-def main(arr):
-    for i in arr:
-        print(factorial(i))
+def factorial_optimized(n: int) -> int:
+    p = 1
+    for i in range(1, n + 1):
+        p *= i
+    return p
+
+
+def main(n: int) -> None:
+    for f in [
+        factorial_recursive_memoization,
+        factorial_cached,
+        factorial_optimized,
+    ]:
+        print(f(n))
 
 
 if __name__ == "__main__":
-    arr = [1001]
+    arr = 4
     print(main(arr))
