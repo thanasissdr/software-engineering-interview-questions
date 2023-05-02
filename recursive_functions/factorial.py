@@ -60,5 +60,5 @@ def main(n: int) -> None:
 
 
 if __name__ == "__main__":
-    arr = 4
-    print(main(arr))
+    n = 4
+    print(main(n))
